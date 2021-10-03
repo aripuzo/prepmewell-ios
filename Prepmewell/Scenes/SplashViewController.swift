@@ -6,24 +6,37 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class SplashViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  
+    var gameTimer: Timer!
+    var splashImageView = UIImageView()
 
-        // Do any additional setup after loading the view.
+    override func viewDidLoad() {
+
+        super.viewDidLoad()
+        navigationBar()
+        gameTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(timeaction), userInfo: nil, repeats: true)
+
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func navigationBar() {
+        self.navigationController?.isNavigationBarHidden = true
     }
-    */
-
+    
+    @objc func timeaction(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var id = ""
+        if !Defaults[\.isLoggedIn] || Defaults[\.token] == nil {
+            id = ScreenID.AUTH
+        }
+        else{
+            id = ScreenID.MAIN
+        }
+        let controller = storyboard.instantiateViewController(withIdentifier: id)
+        sceneDelegate?.window?.rootViewController = controller
+        gameTimer.invalidate()
+    }
 }

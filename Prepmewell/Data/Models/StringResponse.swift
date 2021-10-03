@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct StringResponse: Decodable {
+    let response: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case response
+    }
+}

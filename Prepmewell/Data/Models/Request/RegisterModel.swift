@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct RegisterModel: Codable {
+    let email, password: String
+
+    enum CodingKeys: String, CodingKey {
+        case email = "Email"
+        case password = "Password"
+    }
+}

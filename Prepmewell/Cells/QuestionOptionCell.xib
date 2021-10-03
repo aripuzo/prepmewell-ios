@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="calibre_regular.ttf">
+            <string>Calibre-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fSd-bx-Xtx" customClass="QuestionOptionCell" customModule="Prepmewell" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="92" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="S3w-qb-1ps">
+                <rect key="frame" x="0.0" y="0.0" width="92" height="30"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zur-c9-Q3s">
+                        <rect key="frame" x="0.0" y="0.0" width="92" height="30"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3z-rC-7c8" customClass="BEMCheckBox">
+                                <rect key="frame" x="8" y="5" width="20" height="20"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Ukt-83-4ZE"/>
+                                    <constraint firstAttribute="width" constant="20" id="zwq-pe-NvK"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                        <color key="value" name="Accent"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                        <color key="value" name="Divider"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="onFillColor">
+                                        <color key="value" name="Accent"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="offFillColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Al4-jv-0bX">
+                                <rect key="frame" x="36" y="10" width="41" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="vQL-aQ-Qkm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Calibre-Regular" family="Calibre" pointSize="16"/>
+                                <color key="textColor" name="Text1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="7Kp-7B-QYx"/>
+                            <constraint firstItem="Al4-jv-0bX" firstAttribute="leading" secondItem="X3z-rC-7c8" secondAttribute="trailing" constant="8" symbolic="YES" id="CRf-rN-v1X"/>
+                            <constraint firstItem="X3z-rC-7c8" firstAttribute="centerY" secondItem="zur-c9-Q3s" secondAttribute="centerY" id="KNP-oz-BEh"/>
+                            <constraint firstAttribute="trailing" secondItem="Al4-jv-0bX" secondAttribute="trailing" constant="15" id="TIG-BE-Ymb"/>
+                            <constraint firstItem="X3z-rC-7c8" firstAttribute="leading" secondItem="zur-c9-Q3s" secondAttribute="leading" constant="8" id="iyK-QV-hLJ"/>
+                            <constraint firstItem="Al4-jv-0bX" firstAttribute="top" secondItem="zur-c9-Q3s" secondAttribute="top" constant="10" id="kPU-7J-GaP"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="zur-c9-Q3s" firstAttribute="top" secondItem="S3w-qb-1ps" secondAttribute="top" id="7Ex-DC-ZEb"/>
+                    <constraint firstAttribute="trailing" secondItem="zur-c9-Q3s" secondAttribute="trailing" id="9g8-1Q-5h9"/>
+                    <constraint firstAttribute="bottom" secondItem="zur-c9-Q3s" secondAttribute="bottom" id="cBY-jt-pDd"/>
+                    <constraint firstItem="zur-c9-Q3s" firstAttribute="leading" secondItem="S3w-qb-1ps" secondAttribute="leading" id="xpL-Vc-Dvy"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="92" height="30"/>
+            <connections>
+                <outlet property="checkBoxView" destination="X3z-rC-7c8" id="KaK-UT-ysp"/>
+                <outlet property="textLabel" destination="Al4-jv-0bX" id="WSe-3p-Ndl"/>
+            </connections>
+            <point key="canvasLocation" x="-115.94202898550725" y="-62.946428571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Accent">
+            <color red="0.25999999046325684" green="0.51999998092651367" blue="0.95999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Divider">
+            <color red="0.64999997615814209" green="0.62999999523162842" blue="0.70999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text1">
+            <color red="0.2199999988079071" green="0.20999999344348907" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

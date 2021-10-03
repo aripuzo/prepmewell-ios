@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct DataResponse<T: Decodable>: Decodable {
+    let response: T?
+}

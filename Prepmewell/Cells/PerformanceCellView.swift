@@ -16,4 +16,27 @@ class PerformanceCellView: UITableViewCell {
     @IBOutlet weak var incorrectQuestionLabel: UILabel!
     @IBOutlet weak var unAnsweredLabel: UILabel!
     @IBOutlet weak var averageTimeLabel: UILabel!
+    
+    var performance: Performance?  {
+        didSet {
+            if performance != nil {
+                titleLabel.text = "\(performance!.testTypeName) Test"
+                totalTestLabel.text = "\(performance!.totalTestTaken)"
+                totalQuestionLabel.text = "\(performance!.totalQuestion)"
+                correctQuestionLabel.text = "\(performance!.correctQuestion)"
+                incorrectQuestionLabel.text = "\(performance!.incorrectQuestion)"
+                unAnsweredLabel.text = "\(performance!.unanswerQuestion)"
+                averageTimeLabel.text = performance!.averageTime
+                icon.image = performance!.getIcon()
+            }
+        }
+    }
+    
+    static var nib:UINib {
+        return UINib(nibName: identifier, bundle: nil)
+    }
+    
+    static var identifier: String {
+        return String(describing: self)
+    }
 }

@@ -18,5 +18,13 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>calibre_light.ttf</string>
+		<string>calibre_regular.ttf</string>
+		<string>calibre_bold.ttf</string>
+		<string>calibre_medium.ttf</string>
+		<string>calibre_semibold.ttf</string>
+	</array>
 </dict>
 </plist>
