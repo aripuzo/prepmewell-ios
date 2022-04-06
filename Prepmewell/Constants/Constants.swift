@@ -9,7 +9,7 @@ import Foundation
 
 enum Constants {
     
-    static let URL = "http://beta.indigovisas.com/"
+    static let URL = "https://indigovisas.com/"//"http://beta.indigovisas.com/"
     static let INTEREST_TYPE_STUDY_ABROAD = 1
     static let INTEREST_TYPE_WORK_ABROAD = 2
     static let INTEREST_TYPE_RELOCATE_ABROAD = 3
@@ -32,4 +32,7 @@ enum ScreenID {
     static let READING_TEST = "ReadingTestViewController"
     static let LISTENING_TEST = "ListeningTestViewController"
     static let SPEAKING_TEST = "SpeakingTestViewController"
+    static let GAME_PLAY = "GamePlayViewController"
+    static let GAME_RESULT = "GameResultViewController"
+    static let TIP = "TipViewController"
 }

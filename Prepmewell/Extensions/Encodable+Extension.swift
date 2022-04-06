@@ -16,4 +16,18 @@ extension Encodable {
             else { return "Error converting \(self) to JSON string" }
         return output
     }
+    
+    func paramsFromJSON() -> [String : AnyObject]?
+    {
+        let json = prettyJSON
+        let objectData: Data = (json.data(using: String.Encoding.utf8))!
+        var jsonDict: [ String : AnyObject]!
+        do {
+            jsonDict = try JSONSerialization.jsonObject(with: objectData, options: .mutableContainers) as? [ String : AnyObject]
+            return jsonDict
+        } catch {
+            print("JSON serialization failed:  \(error)")
+            return nil
+        }
+    }
 }

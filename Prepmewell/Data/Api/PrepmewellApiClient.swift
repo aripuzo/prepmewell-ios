@@ -16,6 +16,8 @@ class PrepmewellApiClient {
     
     func execute <DataModel: Decodable> (requestType: HttpMethodType = .get, url: String, params: [String: Any] = [:], success: @escaping (DataModel) -> (), failure: @escaping (String) -> ()) {
         
+        print(Defaults[\.token]!)
+        
         let convertedHttpMethod = httpMethodConversion(httpMethod: requestType)
         let headers: HTTPHeaders = [
             "Authorization": "Bearer \(Defaults[\.token]!)",

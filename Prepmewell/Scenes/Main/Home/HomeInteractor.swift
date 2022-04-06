@@ -10,6 +10,7 @@ import Foundation
 protocol HomeBusinessLogic {
     func getUser()
     func getDashboard()
+    func getInterest(studentFk: Int)
 }
 
 class HomeInteractor: HomeBusinessLogic {
@@ -20,6 +21,9 @@ class HomeInteractor: HomeBusinessLogic {
         worker?.getUser(success: { (feedback) in
             self.presenter?.displayUser(user: feedback)
         }, failure: { (error) in
+            if error.contains("Authorization has been denied for this request") {
+                self.presenter?.logout()
+            }
             self.presenter?.displayError(alert: error)
         })
     }
@@ -27,6 +31,14 @@ class HomeInteractor: HomeBusinessLogic {
     func getDashboard() {
         worker?.getDashboard(success: { (feedback) in
             self.presenter?.displayDashboard(dashboard: feedback.dashboard)
+        }, failure: { (error) in
+            self.presenter?.displayError(alert: error)
+        })
+    }
+    
+    func getInterest(studentFk: Int) {
+        worker?.getInterest(studentFk: studentFk, success: { (feedback) in
+            self.presenter?.displayInterest(interests: feedback)
         }, failure: { (error) in
             self.presenter?.displayError(alert: error)
         })

@@ -44,7 +44,6 @@ class DashboardViewController: UIViewController {
     }
 
     @objc func tapFunction(sender:UITapGestureRecognizer) {
-        performSegue(withIdentifier: "dashboardOpenTestList", sender: nil)
     }
 }
 

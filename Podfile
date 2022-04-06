@@ -16,9 +16,9 @@ target 'Prepmewell' do
   pod 'Kingfisher'
   pod 'SwiftyUserDefaults'
   pod 'RAMAnimatedTabBarController'
-  pod 'IQDropDownTextField'
+  pod 'IQKeyboardManagerSwift'
   pod 'BEMCheckBox'
-  pod 'FittedSheets'
+  pod 'XLPagerTabStrip'
 
 
   target 'PrepmewellTests' do

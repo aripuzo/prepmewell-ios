@@ -23,6 +23,21 @@ struct Dashboard: Codable {
         case writing = "Writing"
         case speaking = "Speaking"
     }
+    
+    func getAverageTimeString()-> String {
+        if averageTime.isEmpty || !averageTime.contains(".") {
+            return averageTime
+        }
+        return averageTime.substring(to: averageTime.index(of: ".")!)
+    }
+    
+    func getAverageScoreString()-> String {
+        return String(format: "%.1f", averageScore)
+    }
+
+    func getAverageAccuracyString()-> String {
+        return String(format: "%.2f", averageAccuracy)
+    }
 }
 
 // MARK: - Performance

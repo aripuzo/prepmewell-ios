@@ -30,7 +30,6 @@ class QuestionOptionCell: UICollectionViewCell {
         checkBoxView.delegate = self
     }
     
-    
     var questionOption: QuestionOption?  {
         didSet {
             if let questionOption = questionOption {
@@ -39,8 +38,6 @@ class QuestionOptionCell: UICollectionViewCell {
             }
         }
     }
-    
-    
     
     static var identifier: String {
         return String(describing: self)

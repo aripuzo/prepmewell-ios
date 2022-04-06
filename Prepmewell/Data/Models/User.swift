@@ -9,19 +9,19 @@ import SwiftyUserDefaults
 
 struct User: Codable, DefaultsSerializable {
     let id: Int
-    let lastName, firstName: String
+    let lastName, firstName: String?
     let hasRegistered, emailConfirmed: Bool
     let fullName, dateOfBirth : String?
-    let gender: String
+    let gender: String?
     let countryFK: Int
     let email: String
     let address, stateFK, occupationFK: Int?
-    let phoneNumber: String
-    let isStudentRole, isMarkerRole, isAdminRole, isLeadMarkerRole: Bool
-    let userName: String
-    let isAllowNotificationsViaPopUPS, isAllowNotificationsViaEmail, isAllowNotificationsViaSMS, isAllowNotificationsForRating: Bool
-    let isAllowNotificationsForNewsAndAnnoucements, isAllowNotificationsForNewsletter, isAllowNotificationsForMonthlyAccountStatement: Bool
-    let location: String
+    let phoneNumber: String?
+    let isStudentRole, isMarkerRole, isAdminRole, isLeadMarkerRole: Bool?
+    let userName: String?
+    let isAllowNotificationsViaPopUPS, isAllowNotificationsViaEmail, isAllowNotificationsViaSMS, isAllowNotificationsForRating: Bool?
+    let isAllowNotificationsForNewsAndAnnoucements, isAllowNotificationsForNewsletter, isAllowNotificationsForMonthlyAccountStatement: Bool?
+    let location: String?
     let displayName: String?
     let countryCode: String
     

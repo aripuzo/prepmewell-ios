@@ -13,6 +13,7 @@ struct ErrorMessage: Decodable {
     let errors: String?
     let errorDescription: String?
     let messageDetail: String?
+    let message: String?
     
     enum CodingKeys: String, CodingKey {
         case response
@@ -20,6 +21,7 @@ struct ErrorMessage: Decodable {
         case errors = "Errors"
         case errorDescription = "error_description"
         case messageDetail = "MessageDetail"
+        case message = "Message"
     }
     
     func getMessage() -> String {
@@ -41,6 +43,9 @@ struct ErrorMessage: Decodable {
         }
         if messageDetail != nil {
             return messageDetail!
+        }
+        if message != nil {
+            return message!
         }
         return "Error parsing server message"
     }

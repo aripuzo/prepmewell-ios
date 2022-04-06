@@ -117,8 +117,14 @@ class TestListViewController: UIViewController, TestListDisplayLogic, NVActivity
     
     func startTest(mockTest: MockTest, writingTypeName: String?) {
         self.mockTest = mockTest
-        interactor?.startTest(mockTestFK: mockTest.recordNo, writingTypeName: writingTypeName)
-        startAnimating(size, message: "Starting test...", type: NVActivityIndicatorType.circleStrokeSpin, fadeInAnimation: nil)
+        if mockTest.testTypeFk == Constants.TEST_TYPE_WRITING {
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SelectWritingTypeViewController") as! SelectWritingTypeViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            interactor?.startTest(mockTestFK: mockTest.recordNo, writingTypeName: writingTypeName)
+            startAnimating(size, message: "Starting test...", type: NVActivityIndicatorType.circleStrokeSpin, fadeInAnimation: nil)
+        }
     }
     
     func hideSkeleton() {

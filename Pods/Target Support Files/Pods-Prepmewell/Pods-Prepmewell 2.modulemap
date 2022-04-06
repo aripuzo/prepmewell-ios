@@ -1,0 +1,6 @@
+framework module Pods_Prepmewell {
+  umbrella header "Pods-Prepmewell-umbrella.h"
+
+  export *
+  module * { export * }
+}

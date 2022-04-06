@@ -12,16 +12,28 @@ protocol HomeDisplayLogic {
     func displayUser(user: User?)
     func displayDashboard(dashboard: Dashboard?)
     func displayError(prompt: String)
+    func displayInterest(interests: ListResponse<Interest>)
+    func logout()
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic {
     func displayUser(user: User?){
         if user != nil {
-            if user?.firstName == nil && user?.lastName == nil {
+            Defaults[\.userData] = user
+            if user?.firstName == nil && user?.lastName == nil && user?.fullName == nil {
                 //gotoActivity(UpdateProfileActivity::class)
                 //requireActivity().finish()
             }
-            nameLabel.text = "Hi, \(user!.firstName) 👋"
+            else if user?.firstName != nil {
+                nameLabel.text = "Hi, \(user!.firstName!) 👋"
+            }
+            else if user?.lastName != nil {
+                nameLabel.text = "Hi, \(user!.lastName!) 👋"
+            }
+            else {
+                nameLabel.text = "Hi, \(user!.fullName!) 👋"
+            }
+            interactor?.getInterest(studentFk: user!.id)
         } else {
             nameLabel.text = "Hi"
         }
@@ -31,10 +43,10 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         if dashboard != nil {
             perfomance.removeAll()
             
-            targetScoreLabel.text = "\(dashboard!.averageScore)"
-            averageScoreLabel.text = String(format: "%.2f", dashboard!.averageAccuracy)
+            targetScoreLabel.text = dashboard!.getAverageScoreString()
+            averageScoreLabel.text = dashboard!.getAverageAccuracyString()
             totalTestLabel.text = "\(dashboard!.testTaken)"
-            averageTimeLabel.text = "\(dashboard!.averageTime)"
+            averageTimeLabel.text = dashboard?.getAverageTimeString()
             
             perfomance.append(contentsOf: dashboard!.writing)
             perfomance.append(contentsOf: dashboard!.speaking)
@@ -50,8 +62,22 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         }
     }
     
+    func displayInterest(interests: ListResponse<Interest>){
+        completeQuestionaireView.isHidden = !interests.response.isEmpty
+    }
+    
     func displayError(prompt: String) {
         print(prompt,"<><><><><><><><><><>")
+    }
+    
+    @objc func tapFunction(sender:UITapGestureRecognizer) {
+        performSegue(withIdentifier: "homeToQuestionnaire", sender: nil)
+    }
+    
+    func logout() {
+        Defaults.removeAll()
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "AuthViewController")
+        UIApplication.shared.keyWindow?.rootViewController = controller
     }
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -88,11 +114,17 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         performanceTable.delegate = self
         performanceTable.dataSource = self
         
+        performanceTable.register(UINib(nibName: "PerformanceCellView", bundle: nil),
+                           forCellReuseIdentifier: PerformanceCellView.identifier)
+        
         setUpDependencies()
         displayUser(user: Defaults[\.userData])
         displayDashboard(dashboard: nil)
         interactor?.getUser()
         interactor?.getDashboard()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(DashboardViewController.tapFunction))
+        completeQuestionaireView.addGestureRecognizer(tap)
     }
    
 }
@@ -104,7 +136,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: PerformanceCellView = self.performanceTable.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! PerformanceCellView
+        let cell: PerformanceCellView = self.performanceTable.dequeueReusableCell(withIdentifier: PerformanceCellView.identifier) as! PerformanceCellView
                 
         cell.performance = self.perfomance[indexPath.row]
         return cell

@@ -8,7 +8,7 @@
 import Foundation
 
 struct RegisterModel: Codable {
-    let email, password: String
+    var email, password: String
 
     enum CodingKeys: String, CodingKey {
         case email = "Email"

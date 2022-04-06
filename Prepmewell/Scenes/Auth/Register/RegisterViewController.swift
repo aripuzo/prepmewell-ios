@@ -107,7 +107,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, RegisterDis
     }
     
     @objc func tapFunction(sender:UITapGestureRecognizer) {
-        print("pressed")
         goBack()
     }
 }

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="calibre_regular.ttf">
+            <string>Calibre-Regular</string>
+        </array>
+        <array key="calibre_semibold.ttf">
+            <string>Calibre-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="59" id="fyT-mz-LYF" customClass="GameTestResultCell" customModule="Prepmewell" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fyT-mz-LYF" id="8av-1x-fwo">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zon-aS-Zep" customClass="CardView" customModule="Prepmewell" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="19.5" width="20" height="20"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7q-eQ-eXM">
+                                <rect key="frame" x="7" y="4" width="6.5" height="12"/>
+                                <fontDescription key="fontDescription" name="Calibre-Semibold" family="Calibre" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="Correct question"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="39R-XH-e58"/>
+                            <constraint firstItem="K7q-eQ-eXM" firstAttribute="centerY" secondItem="Zon-aS-Zep" secondAttribute="centerY" id="3nw-Jw-M1P"/>
+                            <constraint firstAttribute="width" constant="20" id="Evc-Uu-zKd"/>
+                            <constraint firstItem="K7q-eQ-eXM" firstAttribute="centerX" secondItem="Zon-aS-Zep" secondAttribute="centerX" id="Qki-eM-lZG"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61j-6i-NgJ">
+                        <rect key="frame" x="35" y="22" width="364" height="15"/>
+                        <fontDescription key="fontDescription" name="Calibre-Regular" family="Calibre" pointSize="15"/>
+                        <color key="textColor" name="Correct question"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Zon-aS-Zep" firstAttribute="centerY" secondItem="8av-1x-fwo" secondAttribute="centerY" id="6au-OD-z1a"/>
+                    <constraint firstItem="61j-6i-NgJ" firstAttribute="leading" secondItem="Zon-aS-Zep" secondAttribute="trailing" constant="15" id="CTR-JF-gCU"/>
+                    <constraint firstItem="Zon-aS-Zep" firstAttribute="leading" secondItem="8av-1x-fwo" secondAttribute="leading" id="Nu6-Hu-WoG"/>
+                    <constraint firstItem="61j-6i-NgJ" firstAttribute="centerY" secondItem="8av-1x-fwo" secondAttribute="centerY" id="f5J-GS-gRQ"/>
+                    <constraint firstAttribute="trailing" secondItem="61j-6i-NgJ" secondAttribute="trailing" constant="15" id="yrJ-kR-6ce"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="cardView" destination="Zon-aS-Zep" id="q3t-QD-hbK"/>
+                <outlet property="positionLabel" destination="K7q-eQ-eXM" id="aev-DK-poM"/>
+                <outlet property="titleLabel" destination="61j-6i-NgJ" id="VRS-kD-XbP"/>
+            </connections>
+            <point key="canvasLocation" x="31.884057971014496" y="24.441964285714285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Correct question">
+            <color red="0.18823529411764706" green="0.62352941176470589" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
