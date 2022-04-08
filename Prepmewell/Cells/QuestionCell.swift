@@ -92,15 +92,11 @@ class QuestionCell: UITableViewCell {
                 answerField.text = answer
             }
             if !questionOptions.isEmpty {
-                print("................................................................")
-                print("got here \(questionFk)")
                 for (index, item) in questionOptions.enumerated() {
-                    print(index)
                     let cell = optionCollection.cellForItem(at: IndexPath(index: index)) as! QuestionOptionCell
                     if cell.questionFk == questionFk && answer == item.optionName {
                         cell.checkBoxView.on = true
                     }
-                    print(cell.questionFk)
                 }
             }
         } else {

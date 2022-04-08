@@ -145,10 +145,22 @@ extension GameViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemsPerRow:CGFloat = 2
-        let padding:CGFloat = 20
+        let padding:CGFloat = 8
         let itemWidth = (collectionView.bounds.width / itemsPerRow) - padding
         //let itemHeight = 170
-        return CGSize(width: itemWidth, height: 170)
+        return CGSize(width: itemWidth, height: 180)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+            layout collectionViewLayout: UICollectionViewLayout,
+            minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 4.0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout
+            collectionViewLayout: UICollectionViewLayout,
+            minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 2.0
     }
 }
 

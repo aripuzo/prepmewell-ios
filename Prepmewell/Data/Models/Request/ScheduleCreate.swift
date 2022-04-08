@@ -8,10 +8,14 @@
 import Foundation
 
 struct ScheduleUpdate: Codable {
-    let recordNo, testTypeFK, mockTestFK, phoneNumber, status: Int?
-    let testTypeName, mockTestName, mockTypeName, dateTime, email: String?
-    let mockTypeFK, studentFK: Int?
-    let scheduleTime: String?
+    var recordNo, testTypeFK, mockTestFK, status: Int?
+    var testTypeName, mockTestName, phoneNumber, mockTypeName, dateTime, email: String?
+    var mockTypeFK, studentFK: Int?
+    var scheduleTime: String?
+    
+    init() {
+        
+    }
     
     enum CodingKeys: String, CodingKey {
         case testTypeFK = "TestTypeFK"

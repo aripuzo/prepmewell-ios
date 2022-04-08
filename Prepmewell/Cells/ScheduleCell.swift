@@ -9,20 +9,26 @@ import UIKit
 
 class ScheduleCell: UITableViewCell {
     
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var positionLabel: UILabel!
-    @IBOutlet weak var cardView: CardView!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var indicatorView: UIView!
     
     var item: Schedule?  {
         didSet {
-            positionLabel.text = "\(item!.sortOrder)"
-            titleLabel.text = "\(item!.correctAnswer)"
-            if item!.givenAnswer == item!.correctAnswer {
-                cardView.backgroundColor = UIColor(named: "Correct question")
-                titleLabel.textColor = UIColor(named: "Correct question")
-            } else {
-                cardView.backgroundColor = UIColor(named: "Fail question")
-                titleLabel.textColor = UIColor(named: "Fail question")
+            timeLabel.text = item!.getStartTime()
+            titleLabel.text = "\(item!.testTypeName!) Test: \(item!.mockTestName!)"
+            durationLabel.text = item!.getDurationTime()
+            
+            switch item?.status {
+            case 1:
+                indicatorView.backgroundColor = UIColor(named: "Test taken")
+                break;
+            case 2:
+                indicatorView.backgroundColor = UIColor(named: "Test missed")
+                break;
+            default:
+                indicatorView.backgroundColor = UIColor(named: "Test pending")
             }
         }
     }

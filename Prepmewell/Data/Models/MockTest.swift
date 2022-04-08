@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MockTest: Codable {
+class MockTest: NSObject, Codable {
     let mockType: MockType?
     let testType: TestType?
     let recordNo: Int
@@ -43,10 +43,14 @@ struct MockTest: Codable {
         case isLocked = "IsLocked"
         case isMockTestGiven = "IsMockTestGiven"
     }
+    
+    public override var description: String {
+        return testName
+    }
 }
 
 // MARK: - TestType
-struct TestType: Codable {
+class TestType: NSObject, Codable {
     let recordNo: Int
     let testTypeName: String
     let sortOrder: Int
@@ -57,6 +61,10 @@ struct TestType: Codable {
         case testTypeName = "TestTypeName"
         case sortOrder = "SortOrder"
         case isStudent = "IsStudent"
+    }
+    
+    public override var description: String {
+        return testTypeName
     }
 }
 

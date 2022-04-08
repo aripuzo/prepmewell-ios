@@ -16,48 +16,54 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="112" id="TeW-yk-H97">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="112" id="TeW-yk-H97" customClass="ScheduleCell" customModule="Prepmewell" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TeW-yk-H97" id="Dnv-wW-csd">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uwm-xG-5aj">
-                        <rect key="frame" x="20" y="50" width="25.5" height="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uwm-xG-5aj">
+                        <rect key="frame" x="20" y="50" width="50" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="xVK-5Z-NSt"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="Calibre-Regular" family="Calibre" pointSize="12"/>
-                        <color key="textColor" name="Text2"/>
+                        <color key="textColor" name="Text4"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Voc-V1-hep" customClass="CardView" customModule="Prepmewell" customModuleProvider="target">
-                        <rect key="frame" x="53.5" y="20" width="340.5" height="72"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Voc-V1-hep" customClass="CardView" customModule="Prepmewell" customModuleProvider="target">
+                        <rect key="frame" x="78" y="20" width="316" height="72"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dL-XC-aii">
                                 <rect key="frame" x="0.0" y="0.0" width="5" height="72"/>
-                                <color key="backgroundColor" name="Correct question"/>
+                                <color key="backgroundColor" name="Test pending"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="5" id="YwJ-lz-QFf"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="more-vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9Gp-JW-YhX">
-                                <rect key="frame" x="307.5" y="27" width="18" height="18"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="more-vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9Gp-JW-YhX">
+                                <rect key="frame" x="283" y="27" width="18" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="VCd-qA-ZXb"/>
                                     <constraint firstAttribute="width" constant="18" id="VZT-VM-iXI"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYn-KA-aPq">
-                                <rect key="frame" x="24" y="15" width="42" height="18.5"/>
-                                <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYn-KA-aPq">
+                                <rect key="frame" x="15" y="15" width="253" height="16"/>
+                                <fontDescription key="fontDescription" name="Calibre-Regular" family="Calibre" pointSize="16"/>
                                 <color key="textColor" name="Text1"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FhS-2U-KdG">
-                                <rect key="frame" x="24" y="42" width="22" height="22"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="FhS-2U-KdG">
+                                <rect key="frame" x="15" y="43" width="14" height="14"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9TH-nt-s6v">
-                                <rect key="frame" x="61" y="39.5" width="42" height="17.5"/>
-                                <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9TH-nt-s6v">
+                                <rect key="frame" x="34" y="43" width="30" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="9TH-T1-vXc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Calibre-Regular" family="Calibre" pointSize="14"/>
                                 <color key="textColor" name="Text2"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -65,15 +71,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9Gp-JW-YhX" firstAttribute="leading" secondItem="mYn-KA-aPq" secondAttribute="trailing" constant="15" id="954-L6-1Rb"/>
-                            <constraint firstItem="9TH-nt-s6v" firstAttribute="leading" secondItem="FhS-2U-KdG" secondAttribute="trailing" constant="5" id="K0k-ig-Vmo"/>
                             <constraint firstItem="mYn-KA-aPq" firstAttribute="leading" secondItem="2dL-XC-aii" secondAttribute="trailing" constant="10" id="PWO-vY-JZ2"/>
                             <constraint firstItem="2dL-XC-aii" firstAttribute="top" secondItem="Voc-V1-hep" secondAttribute="top" id="RPM-t7-gr0"/>
-                            <constraint firstItem="FhS-2U-KdG" firstAttribute="centerY" secondItem="9TH-nt-s6v" secondAttribute="centerY" id="SfL-lP-YHP"/>
-                            <constraint firstAttribute="bottom" secondItem="9TH-nt-s6v" secondAttribute="bottom" constant="15" id="WGT-M6-xAy"/>
                             <constraint firstAttribute="trailing" secondItem="9Gp-JW-YhX" secondAttribute="trailing" constant="15" id="YCP-nO-xTH"/>
+                            <constraint firstItem="9TH-nt-s6v" firstAttribute="top" secondItem="mYn-KA-aPq" secondAttribute="bottom" constant="12" id="bbG-ij-GeL"/>
                             <constraint firstAttribute="bottom" secondItem="2dL-XC-aii" secondAttribute="bottom" id="cta-L7-204"/>
                             <constraint firstItem="9Gp-JW-YhX" firstAttribute="centerY" secondItem="Voc-V1-hep" secondAttribute="centerY" id="d6N-cx-wHF"/>
+                            <constraint firstItem="9TH-nt-s6v" firstAttribute="top" secondItem="FhS-2U-KdG" secondAttribute="top" id="d77-u1-0n5"/>
                             <constraint firstItem="mYn-KA-aPq" firstAttribute="top" secondItem="Voc-V1-hep" secondAttribute="top" constant="15" id="fKN-nU-xLg"/>
+                            <constraint firstItem="9TH-nt-s6v" firstAttribute="leading" secondItem="FhS-2U-KdG" secondAttribute="trailing" constant="5" id="iFO-eb-L5O"/>
                             <constraint firstItem="FhS-2U-KdG" firstAttribute="leading" secondItem="2dL-XC-aii" secondAttribute="trailing" constant="10" id="ixj-zF-YHW"/>
                             <constraint firstItem="2dL-XC-aii" firstAttribute="leading" secondItem="Voc-V1-hep" secondAttribute="leading" id="oBK-0h-bA9"/>
                         </constraints>
@@ -96,19 +102,29 @@
                     <constraint firstItem="Voc-V1-hep" firstAttribute="top" secondItem="Dnv-wW-csd" secondAttribute="top" constant="20" id="yq6-FU-Q3T"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="durationLabel" destination="9TH-nt-s6v" id="W6A-wE-kVW"/>
+                <outlet property="indicatorView" destination="2dL-XC-aii" id="7cG-Fz-vPK"/>
+                <outlet property="timeLabel" destination="Uwm-xG-5aj" id="UxL-cQ-3Jp"/>
+                <outlet property="titleLabel" destination="mYn-KA-aPq" id="LYz-7B-3i6"/>
+            </connections>
             <point key="canvasLocation" x="-1359.4202898550725" y="247.76785714285714"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="clock" width="14" height="14"/>
         <image name="more-vertical" width="18" height="18"/>
-        <namedColor name="Correct question">
-            <color red="0.18823529411764706" green="0.62352941176470589" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Test pending">
+            <color red="0.94509803921568625" green="0.5607843137254902" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Text1">
             <color red="0.2199999988079071" green="0.20999999344348907" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Text2">
             <color red="0.43999999761581421" green="0.41999998688697815" blue="0.52999997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text4">
+            <color red="0.6470588235294118" green="0.63137254901960782" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

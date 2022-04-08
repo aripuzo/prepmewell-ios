@@ -8,22 +8,14 @@
 import Foundation
 
 struct Schedule: Codable {
-    let recordNo: Int
-    let testTypeFK: Int
-    let testTypeName: String
-    let mockTestFK: Int
-    let mockTestName: String
-    let mockTypeName: String
-    let dateTime: String
+    let testTypeName, mockTestName, mockTypeName: String?
+    let duration, targetScore: Int?
+    let recordNo, testTypeFK, mockTestFK: Int
     let phoneNumber: Int
-    let email: String
-    let status: Int
-    let mockTypeFK: Int
-    let studentFK: Int
-    let scheduleTime: Date
+    let email: String?
+    let status, mockTypeFK, studentFK: Int
+    let scheduleTime, dateTime: String
     let createdOn: String
-    let targetScore: Int
-    let duration: Int
     
     enum CodingKeys: String, CodingKey {
         case testTypeFK = "TestTypeFK"
@@ -44,14 +36,36 @@ struct Schedule: Codable {
         case duration = "Duration"
     }
     
-    func getDurationTime()-> String {
-        let endDate = scheduleTime.adding(minutes: duration)
+    func getDurationTime()-> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        let scheduleTime = dateFormatter.date(from: self.scheduleTime)
+        if scheduleTime != nil {
+            let endDate = scheduleTime!.adding(minutes: duration ?? 0)
 
-        return "\(scheduleTime.getFormattedDate(format: "HH:mm aaa")) - \(endDate.getFormattedDate(format: "HH:mm aaa"))"
+            return "\(scheduleTime!.getFormattedDate(format: "HH:mm aaa")) - \(endDate.getFormattedDate(format: "HH:mm aaa"))"
+        }
+        return nil
     }
 
-    func getStartTime()-> String {
+    func getStartTime()-> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        guard let scheduleTime = dateFormatter.date(from: self.scheduleTime) else {
+            return nil
+        }
         return scheduleTime.getFormattedDate(format: "HH:mm aaa")
+    }
+    
+    func getScheduleTime() -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        guard let scheduleTime = dateFormatter.date(from: self.scheduleTime) else {
+            return nil
+        }
+        return scheduleTime
     }
 }
 

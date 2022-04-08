@@ -44,6 +44,7 @@ class DashboardViewController: UIViewController {
     }
 
     @objc func tapFunction(sender:UITapGestureRecognizer) {
+        performSegue(withIdentifier: "dashboardToSchedule", sender: nil)
     }
 }
 

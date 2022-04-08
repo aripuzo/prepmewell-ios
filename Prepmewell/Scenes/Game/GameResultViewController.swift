@@ -82,7 +82,7 @@ class GameResultViewController: UIViewController, TestResultDisplayLogic, NVActi
         setUpDependencies()
 
         if (testResult?.mockTestResultDetail == nil || testResult?.mockTestResultDetail?.isEmpty == true) {
-            self.startAnimating(self.size, message: "Getting next question...", type: NVActivityIndicatorType.circleStrokeSpin, fadeInAnimation: nil)
+            self.startAnimating(self.size, message: "Getting result...", type: NVActivityIndicatorType.circleStrokeSpin, fadeInAnimation: nil)
             interactor?.getTestResult(testResultFk: testResult!.recordNo)
         }
     }
