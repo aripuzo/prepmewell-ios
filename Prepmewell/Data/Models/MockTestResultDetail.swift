@@ -11,7 +11,7 @@ struct MockTestResultDetail: Codable {
     let question: Question
     let recordNo: Int
     let mockTestResultFK, sortOrder, questionFk: Int
-    let givenAnswer, correctAnswer: String
+    let givenAnswer, correctAnswer: String?
     let status: Bool
     let createdOn: String
     let wordCount: Int?

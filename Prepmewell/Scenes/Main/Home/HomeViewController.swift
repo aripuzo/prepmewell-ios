@@ -21,8 +21,8 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         if user != nil {
             Defaults[\.userData] = user
             if user?.firstName == nil && user?.lastName == nil && user?.fullName == nil {
-                //gotoActivity(UpdateProfileActivity::class)
-                //requireActivity().finish()
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: ScreenID.PROFILE_UPDATE) as! ProfileUpdateViewController
+                self.navigationController?.pushViewController(vc, animated: true)
             }
             else if user?.firstName != nil {
                 nameLabel.text = "Hi, \(user!.firstName!) 👋"
@@ -77,7 +77,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     func logout() {
         Defaults.removeAll()
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "AuthViewController")
-        UIApplication.shared.keyWindow?.rootViewController = controller
+        UIWindow.key?.rootViewController = controller
     }
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -116,6 +116,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         
         performanceTable.register(UINib(nibName: "PerformanceCellView", bundle: nil),
                            forCellReuseIdentifier: PerformanceCellView.identifier)
+        performanceTable.backgroundColor = .clear
         
         setUpDependencies()
         displayUser(user: Defaults[\.userData])
@@ -123,8 +124,8 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         interactor?.getUser()
         interactor?.getDashboard()
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(DashboardViewController.tapFunction))
-        completeQuestionaireView.addGestureRecognizer(tap)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapFunction))
+        //completeQuestionaireView.addGestureRecognizer(tap)
     }
    
 }

@@ -13,6 +13,7 @@ class QuestionGroupCell: UITableViewCell {
     @IBOutlet weak var questionsTable: UITableView!
     
     var questions: [MockTestQuestion] = []
+    var answers: [Int: QuestionAnswer]!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,10 +32,10 @@ class QuestionGroupCell: UITableViewCell {
     var questionGroup: QuestionGroup?  {
         didSet {
             if let questionGroup = questionGroup {
-                questions.removeAll()
-                questions.append(contentsOf: questionGroup.mockTestQuestion)
                 titleLabel.text = questionGroup.groupName
                 bodyLabel.text = questionGroup.questionDescription
+                questions.removeAll()
+                questions.append(contentsOf: questionGroup.mockTestQuestion)
                 questionsTable.reloadData()
             }
         }
@@ -55,10 +56,10 @@ extension QuestionGroupCell: UITableViewDelegate, UITableViewDataSource {
         let cell: QuestionCell = self.questionsTable.dequeueReusableCell(withIdentifier: QuestionCell.identifier) as! QuestionCell
         
         cell.noLabel.text = "\(indexPath.row + 1)"
-        
-        //cell.setAnswer(answer: answers[self.questions[indexPath.row].recordNo]?.answer)
-                
-        cell.mockTestQuestion = self.questions[indexPath.row]
+        cell.setQuestion(mockTestQuestion: self.questions[indexPath.row])
+        if let answers = answers {
+            cell.setAnswer(answer: answers[self.questions[indexPath.row].question.recordNo]?.answer, questionFk: self.questions[indexPath.row].question.recordNo, testType: Constants.TEST_TYPE_READING)
+        }
         return cell
     }
     

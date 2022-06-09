@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="calibre_regular.ttf">
+            <string>Calibre-Regular</string>
+        </array>
+        <array key="calibre_semibold.ttf">
+            <string>Calibre-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="88" id="QVE-hZ-8no" customClass="TestResultCell" customModule="Prepmewell" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QVE-hZ-8no" id="AOy-zL-HiV">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rq8-ON-USP" customClass="CardView" customModule="Prepmewell" customModuleProvider="target">
+                        <rect key="frame" x="20" y="10" width="30" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wlg-Ew-ZY6">
+                                <rect key="frame" x="12" y="9" width="6.5" height="12"/>
+                                <fontDescription key="fontDescription" name="Calibre-Semibold" family="Calibre" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="Correct question"/>
+                        <constraints>
+                            <constraint firstItem="Wlg-Ew-ZY6" firstAttribute="centerY" secondItem="Rq8-ON-USP" secondAttribute="centerY" id="Nnz-FJ-Bkn"/>
+                            <constraint firstAttribute="height" constant="30" id="bxz-dO-K7g"/>
+                            <constraint firstAttribute="width" constant="30" id="ete-6q-pA8"/>
+                            <constraint firstItem="Wlg-Ew-ZY6" firstAttribute="centerX" secondItem="Rq8-ON-USP" secondAttribute="centerX" id="wwN-jW-0Re"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncw-Dd-6hR">
+                        <rect key="frame" x="65" y="17.5" width="334" height="15"/>
+                        <fontDescription key="fontDescription" name="Calibre-Regular" family="Calibre" pointSize="15"/>
+                        <color key="textColor" name="Text1"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TN9-Jk-VIV">
+                        <rect key="frame" x="65" y="40.5" width="282" height="32"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BIk-qi-nau" customClass="CardView" customModule="Prepmewell" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="136" height="32"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play-circle-blue" translatesAutoresizingMaskIntoConstraints="NO" id="3Nh-Hv-PLa">
+                                        <rect key="frame" x="12" y="8" width="16" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="4ji-ck-rsy"/>
+                                            <constraint firstAttribute="width" constant="16" id="vXq-t5-rXS"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR ANSWER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Inj-tn-v0Y">
+                                        <rect key="frame" x="36" y="10" width="75" height="12"/>
+                                        <fontDescription key="fontDescription" name="Calibre-Semibold" family="Calibre" pointSize="12"/>
+                                        <color key="textColor" name="Accent"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Inj-tn-v0Y" firstAttribute="leading" secondItem="3Nh-Hv-PLa" secondAttribute="trailing" constant="8" id="6f5-ms-Afw"/>
+                                    <constraint firstItem="3Nh-Hv-PLa" firstAttribute="leading" secondItem="BIk-qi-nau" secondAttribute="leading" constant="12" id="JuM-pc-23V"/>
+                                    <constraint firstItem="Inj-tn-v0Y" firstAttribute="centerY" secondItem="BIk-qi-nau" secondAttribute="centerY" id="bza-ST-eUL"/>
+                                    <constraint firstAttribute="width" constant="136" id="gIA-kq-GEd"/>
+                                    <constraint firstItem="3Nh-Hv-PLa" firstAttribute="centerY" secondItem="BIk-qi-nau" secondAttribute="centerY" id="oFq-6J-dIQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="Border"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMe-cp-8dA" customClass="CardView" customModule="Prepmewell" customModuleProvider="target">
+                                <rect key="frame" x="146" y="0.0" width="136" height="32"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play-circle-blue" translatesAutoresizingMaskIntoConstraints="NO" id="0hj-JW-qnP">
+                                        <rect key="frame" x="12" y="8" width="16" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="NAl-cF-vz5"/>
+                                            <constraint firstAttribute="width" constant="16" id="Ror-b7-g4o"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAMPLE ANSWER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qro-xn-3eM">
+                                        <rect key="frame" x="36" y="10" width="88.5" height="12"/>
+                                        <fontDescription key="fontDescription" name="Calibre-Semibold" family="Calibre" pointSize="12"/>
+                                        <color key="textColor" name="Accent"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="0hj-JW-qnP" firstAttribute="centerY" secondItem="vMe-cp-8dA" secondAttribute="centerY" id="CMB-31-nqy"/>
+                                    <constraint firstItem="0hj-JW-qnP" firstAttribute="leading" secondItem="vMe-cp-8dA" secondAttribute="leading" constant="12" id="Pby-4C-Q1h"/>
+                                    <constraint firstItem="qro-xn-3eM" firstAttribute="centerY" secondItem="vMe-cp-8dA" secondAttribute="centerY" id="VWK-7R-KdF"/>
+                                    <constraint firstAttribute="width" constant="136" id="YTi-Gy-5EV"/>
+                                    <constraint firstItem="qro-xn-3eM" firstAttribute="leading" secondItem="0hj-JW-qnP" secondAttribute="trailing" constant="8" id="s9Y-1a-UII"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="Border"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="aVs-wz-7GW"/>
+                        </constraints>
+                    </stackView>
+                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z0h-TS-SXu">
+                        <rect key="frame" x="65" y="40.5" width="133.5" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show explanations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIY-Kk-zru">
+                                <rect key="frame" x="0.0" y="0.0" width="108.5" height="30"/>
+                                <fontDescription key="fontDescription" name="Calibre-Regular" family="Calibre" pointSize="15"/>
+                                <color key="textColor" name="Accent"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="MUd-Oy-nIX">
+                                <rect key="frame" x="108.5" y="0.0" width="25" height="30"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="fQP-LS-KHG"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Rq8-ON-USP" firstAttribute="top" secondItem="AOy-zL-HiV" secondAttribute="top" constant="10" id="1dT-a7-BCk"/>
+                    <constraint firstAttribute="trailing" secondItem="ncw-Dd-6hR" secondAttribute="trailing" constant="15" id="1wJ-nC-D8b"/>
+                    <constraint firstItem="TN9-Jk-VIV" firstAttribute="leading" secondItem="ncw-Dd-6hR" secondAttribute="leading" id="3JY-z7-OsB"/>
+                    <constraint firstItem="TN9-Jk-VIV" firstAttribute="top" secondItem="ncw-Dd-6hR" secondAttribute="bottom" constant="8" symbolic="YES" id="4ND-Qn-svF"/>
+                    <constraint firstItem="z0h-TS-SXu" firstAttribute="top" secondItem="ncw-Dd-6hR" secondAttribute="bottom" constant="8" id="5Sr-RJ-0mH"/>
+                    <constraint firstItem="Rq8-ON-USP" firstAttribute="leading" secondItem="AOy-zL-HiV" secondAttribute="leading" constant="20" symbolic="YES" id="SeA-x8-ETB"/>
+                    <constraint firstItem="z0h-TS-SXu" firstAttribute="leading" secondItem="ncw-Dd-6hR" secondAttribute="leading" id="YfT-CZ-uf3"/>
+                    <constraint firstItem="ncw-Dd-6hR" firstAttribute="centerY" secondItem="Rq8-ON-USP" secondAttribute="centerY" id="Zpa-sW-9Iv"/>
+                    <constraint firstItem="ncw-Dd-6hR" firstAttribute="leading" secondItem="Rq8-ON-USP" secondAttribute="trailing" constant="15" id="chp-t9-nJg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="cardView" destination="Rq8-ON-USP" id="9Sw-GC-prM"/>
+                <outlet property="correctAnswerButton" destination="vMe-cp-8dA" id="1EX-th-v4a"/>
+                <outlet property="positionLabel" destination="Wlg-Ew-ZY6" id="2ob-M4-gLA"/>
+                <outlet property="readingStack" destination="z0h-TS-SXu" id="vVV-VK-ZWM"/>
+                <outlet property="speakingStack" destination="TN9-Jk-VIV" id="UdA-ea-Kcz"/>
+                <outlet property="titleLabel" destination="ncw-Dd-6hR" id="Usz-BO-yoe"/>
+                <outlet property="yourAnswerButton" destination="BIk-qi-nau" id="DDn-65-4SK"/>
+            </connections>
+            <point key="canvasLocation" x="21.739130434782609" y="75"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="chevron-right" width="25" height="25"/>
+        <image name="play-circle-blue" width="16" height="16"/>
+        <namedColor name="Accent">
+            <color red="0.25999999046325684" green="0.51999998092651367" blue="0.95999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Border">
+            <color red="0.2627450980392157" green="0.56470588235294117" blue="1" alpha="0.099586682558059691" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Correct question">
+            <color red="0.18823529411764706" green="0.62352941176470589" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text1">
+            <color red="0.2199999988079071" green="0.20999999344348907" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

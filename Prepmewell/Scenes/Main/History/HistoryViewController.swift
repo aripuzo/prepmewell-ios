@@ -94,6 +94,7 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic, NVActivityIn
         table.delegate = self
         table.dataSource = self
         table.isSkeletonable = true
+        table.backgroundColor = .clear
         
         setupDependencies()
         interactor?.getHistory(page: 1)
@@ -123,7 +124,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeaderLabelView = UIView()
        // #imageLiteral(resourceName: "audio-fill")
-        sectionHeaderLabelView.backgroundColor = UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+        sectionHeaderLabelView.backgroundColor = .white
 
         let sectionHeaderLabel = UILabel()
         sectionHeaderLabel.text = sectionHeaderTitles[section]
@@ -144,7 +145,9 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: ScreenID.TEST_HISTORY) as! TestHistoryViewController
+        vc.testResult = sectionResultsArrays[indexPath.section][indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

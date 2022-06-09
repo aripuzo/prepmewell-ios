@@ -10,42 +10,42 @@ import UIKit
 
 @IBDesignable
 class DesignableView: UIView {
-    @IBInspectable
-    open var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-        }
-    }
-    
-    @IBInspectable
-    open var borderWidth: CGFloat {
-        get {
-            return layer.borderWidth
-        }
-        set {
-            layer.borderWidth = newValue
-        }
-    }
-    
-    @IBInspectable
-    open var borderColor: UIColor? {
-        get {
-            if let color = layer.borderColor {
-                return UIColor(cgColor: color)
-            }
-            return nil
-        }
-        set {
-            if let color = newValue {
-                layer.borderColor = color.cgColor
-            } else {
-                layer.borderColor = nil
-            }
-        }
-    }
+//    @IBInspectable
+//    open var cornerRadius: CGFloat {
+//        get {
+//            return layer.cornerRadius
+//        }
+//        set {
+//            layer.cornerRadius = newValue
+//        }
+//    }
+//    
+//    @IBInspectable
+//    open var borderWidth: CGFloat {
+//        get {
+//            return layer.borderWidth
+//        }
+//        set {
+//            layer.borderWidth = newValue
+//        }
+//    }
+//    
+//    @IBInspectable
+//    open var borderColor: UIColor? {
+//        get {
+//            if let color = layer.borderColor {
+//                return UIColor(cgColor: color)
+//            }
+//            return nil
+//        }
+//        set {
+//            if let color = newValue {
+//                layer.borderColor = color.cgColor
+//            } else {
+//                layer.borderColor = nil
+//            }
+//        }
+//    }
     
     @IBInspectable
     open var shadowRadius: CGFloat {
@@ -176,25 +176,25 @@ class DesignableButton: UIButton {
         }
     }
     
-    @IBInspectable
-    open var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-        }
-    }
+//    @IBInspectable
+//    open var cornerRadius: CGFloat {
+//        get {
+//            return layer.cornerRadius
+//        }
+//        set {
+//            layer.cornerRadius = newValue
+//        }
+//    }
     
-    @IBInspectable
-    open var borderWidth: CGFloat {
-        get {
-            return layer.borderWidth
-        }
-        set {
-            layer.borderWidth = newValue
-        }
-    }
+//    @IBInspectable
+//    open var borderWidth: CGFloat {
+//        get {
+//            return layer.borderWidth
+//        }
+//        set {
+//            layer.borderWidth = newValue
+//        }
+//    }
     
     @IBInspectable
     open var color: UIColor = .white{
@@ -203,22 +203,22 @@ class DesignableButton: UIButton {
         }
     }
     
-    @IBInspectable
-    open var borderColor: UIColor? {
-        get {
-            if let color = layer.borderColor {
-                return UIColor(cgColor: color)
-            }
-            return nil
-        }
-        set {
-            if let color = newValue {
-                layer.borderColor = color.cgColor
-            } else {
-                layer.borderColor = nil
-            }
-        }
-    }
+//    @IBInspectable
+//    open var borderColor: UIColor? {
+//        get {
+//            if let color = layer.borderColor {
+//                return UIColor(cgColor: color)
+//            }
+//            return nil
+//        }
+//        set {
+//            if let color = newValue {
+//                layer.borderColor = color.cgColor
+//            } else {
+//                layer.borderColor = nil
+//            }
+//        }
+//    }
     
     @IBInspectable
     open var shadowRadius: CGFloat {
@@ -367,42 +367,42 @@ class DesignableLabel: UILabel {
         super.sizeThatFits(intrinsicContentSize)
     }
     
-    @IBInspectable
-    open var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-        }
-    }
-    
-    @IBInspectable
-    open var borderWidth: CGFloat {
-        get {
-            return layer.borderWidth
-        }
-        set {
-            layer.borderWidth = newValue
-        }
-    }
-    
-    @IBInspectable
-    open var borderColor: UIColor? {
-        get {
-            if let color = layer.borderColor {
-                return UIColor(cgColor: color)
-            }
-            return nil
-        }
-        set {
-            if let color = newValue {
-                layer.borderColor = color.cgColor
-            } else {
-                layer.borderColor = nil
-            }
-        }
-    }
+//    @IBInspectable
+//    open var cornerRadius: CGFloat {
+//        get {
+//            return layer.cornerRadius
+//        }
+//        set {
+//            layer.cornerRadius = newValue
+//        }
+//    }
+//
+//    @IBInspectable
+//    open var borderWidth: CGFloat {
+//        get {
+//            return layer.borderWidth
+//        }
+//        set {
+//            layer.borderWidth = newValue
+//        }
+//    }
+//
+//    @IBInspectable
+//    open var borderColor: UIColor? {
+//        get {
+//            if let color = layer.borderColor {
+//                return UIColor(cgColor: color)
+//            }
+//            return nil
+//        }
+//        set {
+//            if let color = newValue {
+//                layer.borderColor = color.cgColor
+//            } else {
+//                layer.borderColor = nil
+//            }
+//        }
+//    }
     
     @IBInspectable
     open var shadowRadius: CGFloat {
@@ -471,42 +471,42 @@ extension UIView{
 
 extension CardView {
     
-    @IBInspectable
-    open var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-        }
-    }
-    
-    @IBInspectable
-    open var borderWidth: CGFloat {
-        get {
-            return layer.borderWidth
-        }
-        set {
-            layer.borderWidth = newValue
-        }
-    }
-    
-    @IBInspectable
-    open var borderColor: UIColor? {
-        get {
-            if let color = layer.borderColor {
-                return UIColor(cgColor: color)
-            }
-            return nil
-        }
-        set {
-            if let color = newValue {
-                layer.borderColor = color.cgColor
-            } else {
-                layer.borderColor = nil
-            }
-        }
-    }
+//    @IBInspectable
+//    open var cornerRadius: CGFloat {
+//        get {
+//            return layer.cornerRadius
+//        }
+//        set {
+//            layer.cornerRadius = newValue
+//        }
+//    }
+//
+//    @IBInspectable
+//    open var borderWidth: CGFloat {
+//        get {
+//            return layer.borderWidth
+//        }
+//        set {
+//            layer.borderWidth = newValue
+//        }
+//    }
+//
+//    @IBInspectable
+//    open var borderColor: UIColor? {
+//        get {
+//            if let color = layer.borderColor {
+//                return UIColor(cgColor: color)
+//            }
+//            return nil
+//        }
+//        set {
+//            if let color = newValue {
+//                layer.borderColor = color.cgColor
+//            } else {
+//                layer.borderColor = nil
+//            }
+//        }
+//    }
     
     @IBInspectable
     open var shadowRadius: CGFloat {

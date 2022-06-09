@@ -44,7 +44,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="titleLabel" destination="2Tn-h0-lTC" id="vva-6c-DWj"/>
+                <outlet property="nameLabel" destination="2Tn-h0-lTC" id="RLj-O0-svu"/>
             </connections>
             <point key="canvasLocation" x="32" y="20"/>
         </tableViewCell>

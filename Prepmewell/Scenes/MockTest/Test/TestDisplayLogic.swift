@@ -9,6 +9,11 @@ import Foundation
 
 protocol TestDisplayLogic {
     func displayQuestion(questionResponse: QuestionResponse)
-    func endTestResponse(response: TestResultResponse)
+    func endTestResponse(response: TestResult)
     func displayError(alert: String)
+}
+
+protocol WritingTestDisplayLogic: TestDisplayLogic {
+    func uploadTestResponse(response: UploadTestResponse)
+    func updateProgress(progress: Double)
 }

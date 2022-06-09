@@ -20,7 +20,7 @@ class GameViewController: UIViewController, GameDisplayLogic, NVActivityIndicato
     
     func displayQuestionGroup(response: ListResponse<GameQuestionGroup>) {
         stopAnimating()
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: ScreenID.GAME_PLAY) as! GamePlayViewController
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: ScreenID.GAME_PLAY) as! GamePlayViewController
         vc.gameTestResult = self.gameTestResult!
         vc.gameQuestionGroup = response.response[0]
         self.navigationController?.pushViewController(vc, animated: true)
@@ -33,11 +33,13 @@ class GameViewController: UIViewController, GameDisplayLogic, NVActivityIndicato
     }
     
     func displayError(alert: String) {
-        print(alert, "<><><><><><><><><><>")
+        stopAnimating()
+        handleErrorMessage(message: alert)
     }
     
     func displayGames(gamesResponse: ListResponse<Game>) {
         hideSkeleton()
+        stopAnimating()
         games.removeAll()
         games.append(contentsOf: gamesResponse.response)
         collectionView.reloadData()
@@ -93,6 +95,7 @@ class GameViewController: UIViewController, GameDisplayLogic, NVActivityIndicato
     }
         
     func showSolidSkeleton() {
+        self.startAnimating(self.size, message: "Fetching menu...", type: NVActivityIndicatorType.circleStrokeSpin, fadeInAnimation: nil)
         view.showAnimatedSkeleton(usingColor: UIColor.blue, transition: .crossDissolve(0.25))
     }
     

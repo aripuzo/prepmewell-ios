@@ -11,14 +11,15 @@ target 'Prepmewell' do
   pod 'NVActivityIndicatorView'
   pod 'NVActivityIndicatorView/Extended'
   pod 'SkeletonView'
-  pod 'Firebase/Core'
-  pod 'Firebase/Storage'
   pod 'Kingfisher'
   pod 'SwiftyUserDefaults'
-  pod 'RAMAnimatedTabBarController'
   pod 'IQKeyboardManagerSwift'
   pod 'BEMCheckBox'
   pod 'XLPagerTabStrip'
+  pod 'IBAnimatable'
+  pod 'MSPeekCollectionViewDelegateImplementation'
+  pod 'FlutterwaveSDK'
+  pod 'RAMAnimatedTabBarController'
 
 
   target 'PrepmewellTests' do

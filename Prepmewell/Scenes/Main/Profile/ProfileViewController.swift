@@ -19,7 +19,6 @@ class ProfileViewController: UIViewController, HomeDisplayLogic {
         ProfileMenuItem(name: "Profile settings", icon: #imageLiteral(resourceName: "Profile")),
         ProfileMenuItem(name: "My interests", icon: #imageLiteral(resourceName: "Hearts")),
         ProfileMenuItem(name: "Change password", icon: #imageLiteral(resourceName: "Password")),
-        //ProfileMenuItem(name: "Notification settings", icon: #imageLiteral(resourceName: "Notifications")),
         ProfileMenuItem(name: "Plans", icon: #imageLiteral(resourceName: "Plans")),
         ProfileMenuItem(name: "Contact us", icon: #imageLiteral(resourceName: "Contact"))
     ]
@@ -54,6 +53,7 @@ class ProfileViewController: UIViewController, HomeDisplayLogic {
 
         menuTable.delegate = self
         menuTable.dataSource = self
+        menuTable.backgroundColor = .clear
     }
     
     func contactUsSelection(option: Int) {
@@ -125,6 +125,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             vc.selectMenu = self.contactUsSelection
             self.present(vc, animated: false)
             break;
+        case 3:
+            performSegue(withIdentifier: "openPlans", sender: nil)
+            break
         default:
             performSegue(withIdentifier: "openProfileUpdate", sender: nil)
         }

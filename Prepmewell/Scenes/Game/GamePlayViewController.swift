@@ -110,6 +110,7 @@ class GamePlayViewController: UIViewController, GamePlayDisplayLogic, NVActivity
         
         questionListTable.delegate = self
         questionListTable.dataSource = self
+        questionListTable.backgroundColor = .clear
         
         let customBackButton = UIBarButtonItem(image: UIImage(named: "back-icon") , style: .plain, target: self, action: #selector(backAction(sender:)))
         customBackButton.imageInsets = UIEdgeInsets(top: 2, left: -8, bottom: 0, right: 0)
@@ -164,13 +165,13 @@ class GamePlayViewController: UIViewController, GamePlayDisplayLogic, NVActivity
             self.questionTimer.invalidate()
         }
         self.questionTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateQuestionTime), userInfo: nil, repeats: true)
-         //NSRunLoop.currentRunLoop().addTimer(self.questionTimer, forMode: NSRunLoopCommonModes)
+        RunLoop.current.add(self.questionTimer, forMode: RunLoop.Mode.common)
         startTime = Date() // new instance variable that you would need to add.
     }
 
     @objc func updateQuestionTime() {
         let elapsedTime = Date().timeIntervalSince(startTime)
-        let currTime = totalTime - elapsedTime
+        let currTime = totalTime - elapsedTime  
         //total time is an instance variable that is the total amount of time in seconds that you want
         questionTimeLabel.text = "00:\(String(format: "%02d", currTime))"
         if currTime < 0 {
@@ -181,6 +182,7 @@ class GamePlayViewController: UIViewController, GamePlayDisplayLogic, NVActivity
     
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateStartTime), userInfo: nil, repeats: true)
+        RunLoop.current.add(self.timer, forMode: RunLoop.Mode.common)
     }
     
     @objc func updateStartTime() {

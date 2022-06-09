@@ -66,6 +66,15 @@ class TestType: NSObject, Codable {
     public override var description: String {
         return testTypeName
     }
+    
+    func getName()-> String {
+        if testTypeName.contains("test") {
+            return testTypeName
+        }
+        else {
+            return "\(testTypeName) Test"
+        }
+    }
 }
 
 // MARK: - MockType

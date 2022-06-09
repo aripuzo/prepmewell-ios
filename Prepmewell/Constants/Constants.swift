@@ -35,4 +35,10 @@ enum ScreenID {
     static let GAME_PLAY = "GamePlayViewController"
     static let GAME_RESULT = "GameResultViewController"
     static let TIP = "TipViewController"
+    static let NEW_SCHEDULE = "NewScheduleViewController"
+    static let TEST_HISTORY = "TestHistoryViewController"
+    static let WRITTEN_HISTORY = "WrittenHistoryViewController"
+    static let TEST_END = "TestEndViewController"
+    static let PROFILE_UPDATE = "ProfileUpdateViewController"
+    static let CHOOSE_PAYMENT = "ChoosePaymentViewController"
 }

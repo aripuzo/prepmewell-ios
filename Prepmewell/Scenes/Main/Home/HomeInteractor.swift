@@ -21,7 +21,7 @@ class HomeInteractor: HomeBusinessLogic {
         worker?.getUser(success: { (feedback) in
             self.presenter?.displayUser(user: feedback)
         }, failure: { (error) in
-            if error.contains("Authorization has been denied for this request") {
+            if error.contains("Authorization has been denied for this request") || error.contains("Multiple Session found.") {
                 self.presenter?.logout()
             }
             self.presenter?.displayError(alert: error)
@@ -32,6 +32,9 @@ class HomeInteractor: HomeBusinessLogic {
         worker?.getDashboard(success: { (feedback) in
             self.presenter?.displayDashboard(dashboard: feedback.dashboard)
         }, failure: { (error) in
+            if error.contains("Authorization has been denied for this request") || error.contains("Multiple Session found.") {
+                self.presenter?.logout()
+            }
             self.presenter?.displayError(alert: error)
         })
     }
@@ -40,6 +43,9 @@ class HomeInteractor: HomeBusinessLogic {
         worker?.getInterest(studentFk: studentFk, success: { (feedback) in
             self.presenter?.displayInterest(interests: feedback)
         }, failure: { (error) in
+            if error.contains("Authorization has been denied for this request") || error.contains("Multiple Session found.") {
+                self.presenter?.logout()
+            }
             self.presenter?.displayError(alert: error)
         })
     }

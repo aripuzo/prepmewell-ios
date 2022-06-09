@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-open class TestViewController: UIViewController {
+open class TestViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet weak var titleLabel1: UILabel!
     @IBOutlet weak var titleLabel2: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
@@ -23,6 +24,11 @@ open class TestViewController: UIViewController {
     var position = 0
     var isFirst = true
     var isLast = false
+    var questionTimer: Timer!
+    var startTime: Date!
+    var totalTime: TimeInterval = 10 * 60 * 1000
+    var isDone = false
+    let size = CGSize(width: 80, height: 80)
     
     var interactor : TestBusinessLogic?
     
@@ -40,6 +46,15 @@ open class TestViewController: UIViewController {
     func startTest() {}
 
     func submitTest() {}
+    
+    func endTest() {
+        let alert = UIAlertController(title: "Submit Test", message: "Are you sure you are satisfied with you answers and ready to submit?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: {_ in
+            self.submitTest()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
     
     func setUpDependencies() {
         let interactor = TestInteractor()
@@ -102,6 +117,24 @@ open class TestViewController: UIViewController {
     }
     
     func showInstructions(questionResponse: QuestionResponse) {
+        let vc = InstructionsModalViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.heading = "\(questionResponse.testType.getName()) Instructions: \(questionResponse.testName)"
+        vc.body = questionResponse.responseDescription.htmlToString
+        vc.buttonText = "CONTINUE"
+        vc.buttonAction = {
+            if !self.isDone {
+                self.closeInfoDialog()
+                self.isDone = true
+            }
+        }
+        vc.closeAction = {
+            if !self.isDone {
+                self.closeInfoDialog()
+                self.isDone = true
+            }
+        }
+        self.present(vc, animated: false)
     }
     
     @objc func didPressNextBtn() {
@@ -127,39 +160,75 @@ open class TestViewController: UIViewController {
     }
     
     @IBAction func submitButtonPressed() {
+        endTest()
     }
     
     func registerAnswerTextObsever() {
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .didPostQuestionAnswer, object: nil)
     }
+    
+    func stopwatch() {
+        if self.questionTimer != nil {
+            self.questionTimer.invalidate()
+        }
+        self.questionTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateQuestionTime), userInfo: nil, repeats: true)
+        RunLoop.current.add(self.questionTimer, forMode: RunLoop.Mode.common)
+        startTime = Date() // new instance variable that you would need to add.
+    }
+
+    @objc func updateQuestionTime() {
+        let elapsedTime = Date().timeIntervalSince(startTime)
+        //let currTime = totalTime - elapsedTime
+        DispatchQueue.main.async {
+            self.title = elapsedTime.stringFromTimeInterval()
+        }
+//        if currTime < 0 {
+//            questionTimer.invalidate()
+//        }
+    }
+    
+    func didEndTest(response: TestResult) {}
+    
+    @objc func backAction(sender: UIBarButtonItem) {
+        let vc = InstructionsModalViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.heading = "End test?"
+        vc.body = "Are you sure fo exit without submitting test result?"
+        vc.buttonText = "End"
+        vc.buttonAction = {
+            self.navigationController?.popViewController(animated: true)
+        }
+        self.present(vc, animated: false)
+    }
 
 }
 
 extension TestViewController: TestDisplayLogic {
+    func endTestResponse(response: TestResult) {
+        didEndTest(response: response)
+    }
     
     func displayQuestion(questionResponse: QuestionResponse) {
-        if questionResponse != nil {
-            self.questionResponse = questionResponse
-            for (index, questionGroup) in self.questionResponse!.question.enumerated() {
-                if isNext(questionGroup: questionGroup) {
-                    position = index
-                    activeQuestionGroup = questionGroup
-                    firstPosition = index
-                    break
-                }
+        stopAnimating()
+        self.questionResponse = questionResponse
+        for (index, questionGroup) in self.questionResponse!.question.enumerated() {
+            if isNext(questionGroup: questionGroup) {
+                position = index
+                activeQuestionGroup = questionGroup
+                firstPosition = index
+                break
             }
         }
         if let questionResponse = self.questionResponse {
             bindActiveQuestion(questionGroup: activeQuestionGroup!)
             showInstructions(questionResponse: questionResponse)
+        } else {
+            handleErrorMessage(message: "Error loading this test")
         }
     }
     
-    func endTestResponse(response: TestResultResponse) {
-        
-    }
-    
     func displayError(alert: String) {
-        
+        stopAnimating()
+        handleErrorMessage(message: alert)
     }
 }

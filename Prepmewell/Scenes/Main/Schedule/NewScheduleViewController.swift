@@ -55,6 +55,7 @@ class NewScheduleViewController: UIViewController, NewScheduleDisplayLogic, NVAc
         handleNetworkError(prompt: alert)
     }
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var testFormatTextField: UITextField!
     @IBOutlet weak var testVolumeTextField: UITextField!
     @IBOutlet weak var testDayTextField: UITextField!
@@ -70,6 +71,7 @@ class NewScheduleViewController: UIViewController, NewScheduleDisplayLogic, NVAc
     var mockTests:[MockTest] = []
     var interactor : TestScheduleBusinessLogic?
     var scheduleUpdate = ScheduleUpdate()
+    var schedule: Schedule?
     var userData: User!
     
     func setUpDependencies() {
@@ -109,16 +111,39 @@ class NewScheduleViewController: UIViewController, NewScheduleDisplayLogic, NVAc
         
         setUpDependencies()
         interactor?.getTestTypes()
+        
+        if schedule != nil {
+            setEditMode(schedule: schedule!)
+        }
     }
     
     func mockTest_onSelect(selectedText: String, selectedPosition: Int) {
         scheduleUpdate.mockTestFK = mockTests[selectedPosition].recordNo
         scheduleUpdate.mockTypeFK = mockTests[selectedPosition].mockTypeFK
+        scheduleUpdate.mockTestName = selectedText
     }
     
     func testType_onSelect(selectedText: String, selectedPosition: Int) {
         scheduleUpdate.testTypeFK = testTypes[selectedPosition].recordNo
+        scheduleUpdate.testTypeName = selectedText
         interactor?.getMockTests(testTypeFk: testTypes[selectedPosition].recordNo, mockTypeFK: nil, pageNo: nil)
+    }
+    
+    func setEditMode(schedule: Schedule){
+        titleLabel.text = "Edit Scheduled Test"
+        scheduleUpdate.setScheduleData(schedule: schedule)
+        testFormatTextField.text = scheduleUpdate.testTypeName
+        testVolumeTextField.text = schedule.mockTestName
+        
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "yyyy-MM-dd"
+        testDayTextField.text = dateformat.string(from: schedule.getScheduleTime()!)
+        
+        dateformat.dateFormat = "HH:mm:ss"
+        testTimeTextField.text = dateformat.string(from: schedule.getScheduleTime()!)
+        
+        smsCheckbox.on = scheduleUpdate.phoneNumber != nil
+        emailCheckbox.on = scheduleUpdate.email != nil
     }
     
     @IBAction func didPressUpdateBtn() {
@@ -153,10 +178,6 @@ class NewScheduleViewController: UIViewController, NewScheduleDisplayLogic, NVAc
             dateFormatter.dateFormat = "yyyy-MM-dd"
             let dateString = dateFormatter.string(from: datePickerView.date)
             self.testDayTextField.text = dateString
-                
-            print(datePickerView.date)
-            print(dateString)
-                
             self.testDayTextField.resignFirstResponder()
         }
     }

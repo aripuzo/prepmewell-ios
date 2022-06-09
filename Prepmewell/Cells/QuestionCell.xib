@@ -40,10 +40,12 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iBH-Fz-UtQ">
                                                 <rect key="frame" x="20" y="2" width="140" height="34"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="140" id="WNU-Oz-8OG"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" name="Text1"/>
+                                                <fontDescription key="fontDescription" name="Calibre-Regular" family="Calibre" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myG-Zl-2yh">
@@ -53,7 +55,6 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="iBH-Fz-UtQ" firstAttribute="top" secondItem="IXP-Dd-jSb" secondAttribute="top" constant="2" id="6Ez-X4-yLp"/>
                                             <constraint firstItem="iBH-Fz-UtQ" firstAttribute="leading" secondItem="IXP-Dd-jSb" secondAttribute="leading" constant="20" id="Wxd-dW-aJZ"/>
@@ -132,7 +133,6 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="UE3-8D-8Jx" firstAttribute="top" secondItem="FGE-qK-Pkq" secondAttribute="top" id="4x3-Qb-a01"/>
                                             <constraint firstItem="UE3-8D-8Jx" firstAttribute="leading" secondItem="FGE-qK-Pkq" secondAttribute="leading" id="E6Y-fi-nLh"/>
@@ -190,7 +190,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="UQX-SP-ZBh" secondAttribute="bottom" constant="15" id="3Tn-AO-wqQ"/>
                             <constraint firstItem="FOP-nS-7dZ" firstAttribute="leading" secondItem="GGi-z8-isV" secondAttribute="leading" constant="15" id="Jsx-Lo-smV"/>
@@ -221,6 +221,8 @@
                 <outlet property="noView" destination="FOP-nS-7dZ" id="t6u-ys-1Sj"/>
                 <outlet property="optionCollection" destination="403-Ha-OMp" id="okT-1O-PAV"/>
                 <outlet property="recordButton" destination="UE3-8D-8Jx" id="04o-ju-LAK"/>
+                <outlet property="recordButtonImage" destination="apN-FC-cjr" id="eDp-2n-RJc"/>
+                <outlet property="recordButtonLabel" destination="kn7-oF-Gwo" id="H6P-Dl-9Jd"/>
             </connections>
             <point key="canvasLocation" x="-30.434782608695656" y="-44.53125"/>
         </tableViewCell>
@@ -231,7 +233,7 @@
             <color red="0.92941176470588238" green="0.92941176470588238" blue="0.93725490196078431" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Cool red">
-            <color red="0.93000000715255737" green="0.31000000238418579" blue="0.31000000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.92941176470588238" green="0.30980392156862746" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Light blue">
             <color red="0.71764705882352942" green="0.83921568627450982" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

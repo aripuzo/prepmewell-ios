@@ -9,4 +9,5 @@ import Foundation
 
 extension Notification.Name {
     static let didPostQuestionAnswer = Notification.Name("didPostQuestionAnswer")
+    static let didPostExplainAnswer = Notification.Name("didPostExplainAnswer")
 }

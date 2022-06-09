@@ -35,6 +35,8 @@ class TestListViewController: UIViewController, TestListDisplayLogic, NVActivity
             newViewController = self.getStoryboard().instantiateViewController(withIdentifier: ScreenID.READING_TEST) as! ReadingTestViewController
         case Constants.TEST_TYPE_LISTENING:
             newViewController = self.getStoryboard().instantiateViewController(withIdentifier: ScreenID.LISTENING_TEST) as! ListeningTestViewController
+        case Constants.TEST_TYPE_SPEAKING:
+            newViewController = self.getStoryboard().instantiateViewController(withIdentifier: ScreenID.SPEAKING_TEST) as! SpeakingTestViewController
         default:
             newViewController = self.getStoryboard().instantiateViewController(withIdentifier: ScreenID.TEST_LIST) as! ReadingTestViewController
         }
@@ -91,7 +93,7 @@ class TestListViewController: UIViewController, TestListDisplayLogic, NVActivity
         testList.dataSource = self
         testList.isSkeletonable = true
         
-        title = testTitle
+        self.title = testTitle!
         
 //        testList.prepareSkeleton(completion: { done in
 //            self.view.showAnimatedSkeleton()
@@ -103,28 +105,32 @@ class TestListViewController: UIViewController, TestListDisplayLogic, NVActivity
     }
     
     func selectStartTest(mockTest: MockTest) {
-        if mockTest.isLocked == true {
-            
-        }
-        else {
+//        if mockTest.isLocked == true {
+//
+//        }
+//        else {
             if mockTest.testTypeFk == Constants.TEST_TYPE_WRITING {
-                startTest(mockTest: mockTest, writingTypeName: Constants.WRITING_TYPE_WRITE)
+                let vc = SelectWritingTypeViewController()
+                vc.modalPresentationStyle = .overCurrentContext
+                vc.buttonAction = {
+                    var writingTypeName = Constants.WRITING_TYPE_UPLOAD
+                    if vc.group.selectedCheckBox!.tag == 0 {
+                        writingTypeName = Constants.WRITING_TYPE_WRITE
+                    }
+                    self.startTest(mockTest: mockTest, writingTypeName: writingTypeName)
+                }
+                self.present(vc, animated: false)
             } else {
                 startTest(mockTest: mockTest, writingTypeName: nil)
             }
-        }
+//        }
     }
     
     func startTest(mockTest: MockTest, writingTypeName: String?) {
         self.mockTest = mockTest
-        if mockTest.testTypeFk == Constants.TEST_TYPE_WRITING {
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SelectWritingTypeViewController") as! SelectWritingTypeViewController
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        else {
-            interactor?.startTest(mockTestFK: mockTest.recordNo, writingTypeName: writingTypeName)
-            startAnimating(size, message: "Starting test...", type: NVActivityIndicatorType.circleStrokeSpin, fadeInAnimation: nil)
-        }
+        self.writingTypeName = writingTypeName
+        interactor?.startTest(mockTestFK: mockTest.recordNo, writingTypeName: writingTypeName)
+        startAnimating(size, message: "Starting test...", type: NVActivityIndicatorType.circleStrokeSpin, fadeInAnimation: nil)
     }
     
     func hideSkeleton() {

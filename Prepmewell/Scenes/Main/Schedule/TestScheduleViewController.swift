@@ -38,7 +38,6 @@ class TestScheduleViewController: UIViewController, TestScheduleDisplayLogic {
     
     private var scheduleList: [Schedule] = []
     private var filteredList: [Schedule] = []
-    //var scheduleList: [Date: Schedule] = [:]
     var interactor : TestScheduleBusinessLogic?
     var dates: [Date] = []
     var selectedDate: Date?
@@ -68,10 +67,12 @@ class TestScheduleViewController: UIViewController, TestScheduleDisplayLogic {
         
         scheduleListTable.delegate = self
         scheduleListTable.dataSource = self
+        scheduleListTable.backgroundColor = .clear
         
         scheduleCollection.delegate = self
         scheduleCollection.dataSource = self
         scheduleCollection.isSkeletonable = true
+        scheduleCollection.backgroundColor = .clear
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapButton))
         fab.addGestureRecognizer(tap)
@@ -97,6 +98,44 @@ class TestScheduleViewController: UIViewController, TestScheduleDisplayLogic {
     @objc func didTapButton(){
         performSegue(withIdentifier: "schedulesToNew", sender: nil)
     }
+    
+    func showInstructions(schedule: Schedule) {
+        let vc = ScheduleModalViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.subtitle = schedule.getStartTime()
+        vc.heading = "\(schedule.testTypeName!) Test: \(schedule.mockTestName!)"
+        switch schedule.status {
+            case 1:
+                vc.body = "You have taken this test, what do you want to do?"
+                vc.buttonText = "TAKE TEST AGAIN"
+                vc.buttonText2 = "VIEW PERFROMANCE"
+                break;
+            case 2:
+                vc.body = "You missed this test, what do you want to do?"
+                vc.buttonText = "START TEST NOW"
+                vc.buttonText2 = "EDIT SCHEDULE"
+                vc.buttonAction2 = {
+                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: ScreenID.NEW_SCHEDULE) as! NewScheduleViewController
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    vc.schedule = schedule
+                }
+                break;
+            default:
+                vc.body = "This test is due in 2 hours, what do you want to do?"
+                vc.buttonText = "START TEST NOW"
+                vc.buttonText2 = "EDIT SCHEDULE"
+                vc.buttonAction2 = {
+                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: ScreenID.NEW_SCHEDULE) as! NewScheduleViewController
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    vc.schedule = schedule
+                }
+        }
+        vc.buttonAction = {
+            
+        }
+        
+        self.present(vc, animated: false)
+    }
 
 }
 
@@ -113,7 +152,7 @@ extension TestScheduleViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        showInstructions(schedule: filteredList[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

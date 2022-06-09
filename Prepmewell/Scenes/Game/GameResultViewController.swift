@@ -19,6 +19,7 @@ class GameResultViewController: UIViewController, TestResultDisplayLogic, NVActi
         stopAnimating()
         testResult = response.response
         questions.append(contentsOf: testResult!.mockTestResultDetail!)
+        showResult()
     }
     
     private func showResult() {
@@ -78,6 +79,7 @@ class GameResultViewController: UIViewController, TestResultDisplayLogic, NVActi
         
         questionListTable.delegate = self
         questionListTable.dataSource = self
+        questionListTable.backgroundColor = .clear
         
         setUpDependencies()
 

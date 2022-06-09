@@ -27,6 +27,7 @@ class DashboardViewController: UIViewController {
         
         menuTable.delegate = self
         menuTable.dataSource = self
+        menuTable.backgroundColor = .clear
         
         scheduleView.layer.masksToBounds = true
         

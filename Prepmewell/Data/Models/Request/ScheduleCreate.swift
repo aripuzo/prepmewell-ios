@@ -32,4 +32,20 @@ struct ScheduleUpdate: Codable {
         case studentFK = "StudentFK"
         case scheduleTime = "ScheduleTime"
     }
+    
+    mutating func setScheduleData(schedule: Schedule) {
+        self.testTypeFK = schedule.testTypeFK
+        self.recordNo = schedule.recordNo
+        self.testTypeName = schedule.testTypeName
+        self.mockTestFK = schedule.mockTestFK
+        self.mockTestName = schedule.mockTestName
+        self.mockTypeName = schedule.mockTypeName
+        self.dateTime = schedule.dateTime
+        self.phoneNumber = "\(schedule.phoneNumber)"
+        self.email = schedule.email
+        self.status = schedule.status
+        self.mockTypeFK = schedule.mockTypeFK
+        self.studentFK = schedule.studentFK
+        self.scheduleTime = schedule.scheduleTime
+    }
 }

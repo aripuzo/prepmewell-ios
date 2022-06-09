@@ -9,11 +9,10 @@ import UIKit
 
 class QuestionnaireCellView: UITableViewCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    
+    @IBOutlet weak var nameLabel: UILabel!
     var text: String?  {
         didSet {
-            titleLabel.text = text
+            nameLabel.text = text
         }
     }
     

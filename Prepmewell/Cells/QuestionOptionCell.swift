@@ -42,6 +42,14 @@ class QuestionOptionCell: UICollectionViewCell {
     static var identifier: String {
         return String(describing: self)
     }
+    
+    func setAnswer(answer: String?) {
+        if answer != nil && !answer!.isEmpty {
+            if questionOption?.optionName == answer {
+                checkBoxView.on = true
+            }
+        }
+    }
 }
 
 extension QuestionOptionCell: BEMCheckBoxDelegate {
@@ -54,7 +62,6 @@ extension QuestionOptionCell: BEMCheckBoxDelegate {
                 object: self,
                 userInfo: ["Answer" : answer])
         }
-        print("name: \(questionOption!.getName())")
     }
     
 }
